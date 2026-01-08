@@ -1,3 +1,4 @@
+import { FaGithub } from "react-icons/fa"
 export default function NavBar() {
     return (
         <nav className="flex justify-between items-center py-1 px-8">
@@ -7,7 +8,10 @@ export default function NavBar() {
                 </picture>
                 <h1 className="text-white text-2xl font-bold">Search IP Address</h1>
             </div>
-            <button className="bg-white text-blue-950 px-4 py-2 rounded-md font-bold">Portafolio de proyectos HM</button>
+            <a href="https://github.com/EnriqueHM31?tab=repositories" target="_blank" className="bg-white text-blue-950 px-4 py-2 rounded-md font-bold flex items-center gap-2 cursor-pointer hover:bg-blue-600 transition-all duration-300 hover:text-white ease-in">
+                <p>Portafolio de proyectos HM</p>
+                <FaGithub />
+            </a>
         </nav>
     )
 }
