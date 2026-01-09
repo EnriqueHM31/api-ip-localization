@@ -7,8 +7,9 @@ export default function PagesRoutes() {
     return (
         <Routes>
             <Route path="/" element={<PageHero />} />
-            <Route path="*" element={<PageNotFound />} />
             <Route path=":ip" element={<PageInfoIp />} />
+            <Route path="*" element={<PageNotFound />} />
+
         </Routes>
     )
 }
