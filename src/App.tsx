@@ -1,8 +1,8 @@
 import NavBar from "./components/NavBar"
-import SectionHero from "./components/SectionHero"
 import FondoWave from "./components/FondoWave"
 import Etiqueta from "./components/Etiqueta"
 import { FaSearch } from "react-icons/fa";
+import Hero from "./pages/Hero"
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
 
       <Etiqueta text="Encontrar la ubicación de una IP" icon={<FaSearch />} />
 
-      <SectionHero />
+      <Hero />
 
       <FondoWave />
     </div>
