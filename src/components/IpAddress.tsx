@@ -1,34 +1,10 @@
-const Key = {
-    espacio: "Backspace",
-} as const;
-
-import { useRef, useState, type KeyboardEvent } from "react";
 import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
+import { useLocalizacion } from "../hooks/Localizacion";
 
 export default function FormIpAddress() {
-    const [values, setValues] = useState(["", "", "", ""]);
-    const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
-    const handleChange = (index: number, value: string) => {
-        if (!/^\d{0,3}$/.test(value)) return;
+    const { values, inputsRef, handleChange, handleKeyDown, ipValue } = useLocalizacion();
 
-        const newValues = [...values];
-        newValues[index] = value;
-        setValues(newValues);
-
-        if (value.length === 3 && index < 3) {
-            inputsRef.current[index + 1]?.focus();
-        }
-    };
-
-    const handleKeyDown = (index: number, e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === Key.espacio && values[index] === "" && index > 0) {
-            inputsRef.current[index - 1]?.focus();
-        }
-    };
-
-
-    const ipValue = values.join(".");
 
     return (
         <form className="flex items-center flex-col gap-5 w-full max-w-4xl" onSubmit={(e) => obtenerLocalizacionIP(e, ipValue)}>
