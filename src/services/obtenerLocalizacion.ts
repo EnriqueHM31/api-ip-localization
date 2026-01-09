@@ -1,13 +1,12 @@
-import type { FormEvent } from "react";
 import { URL_PETICION } from "../config";
 import { toast } from "sonner";
+import type { IpLocationData } from "../types/IpAddress";
 
 
-export function obtenerLocalizacionIP(event: FormEvent<HTMLFormElement>, ip: string) {
-    event.preventDefault();
+export function obtenerLocalizacionIP({ ip }: { ip: string }) {
     return fetch(URL_PETICION + ip)
         .then((response) => response.json())
-        .then((data) => {
+        .then((data: IpLocationData) => {
             toast.success("Se encontró la localización de la IP");
             return data;
         })
