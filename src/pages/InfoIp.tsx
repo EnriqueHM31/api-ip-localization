@@ -60,7 +60,7 @@ export default function PageInfoIp() {
 
     console.log(data);
     return (
-        <div className="flex flex-col items-center justify-center text-white ">
+        <div className="flex flex-col items-center justify-center text-white py-10 ">
 
             {!data && <h2 className="text-2xl text-center text-white">No se encontró la IP</h2>}
             <IpLocationCard data={mockIpLocation as IpLocationData} />

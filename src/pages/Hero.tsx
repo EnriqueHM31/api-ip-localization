@@ -2,12 +2,10 @@ import { FaSearch } from "react-icons/fa";
 import Etiqueta from "../components/Etiqueta";
 import FondoWave from "../components/FondoWave";
 import FormIpAddress from "../components/IpAddress";
-import NavBar from "../components/NavBar";
 
 export default function Hero() {
     return (
         <>
-            <NavBar />
 
             <Etiqueta text="Encontrar la ubicación de una IP" icon={<FaSearch />} />
 
