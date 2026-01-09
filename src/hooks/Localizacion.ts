@@ -1,9 +1,12 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 import { BottonsKeys } from "../constants";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export function useLocalizacion() {
     const [values, setValues] = useState(["", "", "", ""]);
     const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
+    const navigate = useNavigate();
 
     const handleChange = (index: number, value: string) => {
         if (!/^\d{0,3}$/.test(value)) return;
@@ -26,12 +29,34 @@ export function useLocalizacion() {
 
     const ipValue = values.join(".");
 
+    const isValidIP = (ip: string) => {
+        const parts = ip.split(".");
+        if (parts.length !== 4) return false;
+
+        return parts.every(
+            (part) =>
+                part !== "" &&
+                !isNaN(Number(part)) &&
+                Number(part) >= 0 &&
+                Number(part) <= 255
+        );
+    };
+
+    const handleBuscar = () => {
+        if (!isValidIP(ipValue)) {
+            toast.error("La IP introducida no es válida");
+            return;
+        }
+        navigate(`/${ipValue}`);
+    };
+
     return {
         values,
         inputsRef,
         handleChange,
         handleKeyDown,
         ipValue,
+        handleBuscar,
     }
 
 }

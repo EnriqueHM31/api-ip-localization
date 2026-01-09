@@ -3,7 +3,7 @@ import { useLocalizacion } from "../hooks/Localizacion";
 
 export default function FormIpAddress() {
 
-    const { values, inputsRef, handleChange, handleKeyDown, ipValue } = useLocalizacion();
+    const { values, inputsRef, handleChange, handleKeyDown, ipValue, handleBuscar } = useLocalizacion();
 
 
     return (
@@ -35,7 +35,13 @@ export default function FormIpAddress() {
 
             </div>
             <input type="hidden" value={ipValue} />
-            <button type="submit" className="bg-blue-600 cursor-pointer text-white px-8 py-2 rounded-2xl font-bold text-2xl hover:bg-white transition-all duration-300 hover:text-blue-950 ease-in" >Buscar</button>
+            <button
+                type="button"
+                onClick={handleBuscar}
+                className="bg-blue-600 cursor-pointer text-white px-8 py-2 rounded-2xl font-bold text-2xl hover:bg-white transition-all duration-300 hover:text-blue-950 ease-in"
+            >
+                Buscar
+            </button>
         </form>
     );
 }
