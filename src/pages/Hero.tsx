@@ -6,8 +6,7 @@ import NavBar from "../components/NavBar";
 
 export default function Hero() {
     return (
-
-        <div className="w-full min-h-screen animated-bg flex pt-10 flex-col relative">
+        <>
             <NavBar />
 
             <Etiqueta text="Encontrar la ubicación de una IP" icon={<FaSearch />} />
@@ -21,7 +20,7 @@ export default function Hero() {
             </section>
 
             <FondoWave />
-        </div>
+        </>
     )
 
 }
