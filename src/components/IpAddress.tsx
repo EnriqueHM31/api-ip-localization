@@ -7,7 +7,7 @@ export default function FormIpAddress() {
 
 
     return (
-        <form className="flex items-center flex-col gap-5 w-full max-w-4xl" onSubmit={(e) => obtenerLocalizacionIP(e, ipValue)}>
+        <form className="flex items-center flex-col gap-5 w-full max-w-4xl" onSubmit={() => obtenerLocalizacionIP({ ip: ipValue })}>
 
             <div className="flex gap-2 justify-end my-5 ">
                 {values.map((val, index) => (

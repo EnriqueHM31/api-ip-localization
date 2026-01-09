@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import PagesRoutes from "./routes/pages.routes";
 import { Toaster } from "sonner";
@@ -6,9 +7,10 @@ function App() {
 
   return (
     <>
-      <div className="w-full min-h-screen animated-bg flex pt-10 flex-col relative h-full ">
+      <div className="w-full min-h-screen animated-bg flex pt-5 flex-col relative h-full ">
         <NavBar />
         <PagesRoutes />
+        <Footer />
       </div>
       <Toaster
         expand
