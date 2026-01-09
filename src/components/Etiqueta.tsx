@@ -1,4 +1,3 @@
-
 interface PropsEtiqueta {
     text: string;
     icon: React.ReactNode;

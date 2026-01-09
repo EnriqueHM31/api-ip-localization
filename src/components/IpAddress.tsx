@@ -1,6 +1,10 @@
-import { useRef, useState, type FormEvent, type KeyboardEvent } from "react";
-const apiKey = import.meta.env.VITE_KEY_API_IP;
-const URL_PETICION = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=${apiKey}&ip=`
+const Key = {
+    espacio: "Backspace",
+} as const;
+
+import { useRef, useState, type KeyboardEvent } from "react";
+import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
+
 export default function FormIpAddress() {
     const [values, setValues] = useState(["", "", "", ""]);
     const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
@@ -17,27 +21,12 @@ export default function FormIpAddress() {
         }
     };
 
-    const handleKeyDown = (
-        index: number,
-        e: KeyboardEvent<HTMLInputElement>
-    ) => {
-        if (e.key === "Backspace" && values[index] === "" && index > 0) {
+    const handleKeyDown = (index: number, e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === Key.espacio && values[index] === "" && index > 0) {
             inputsRef.current[index - 1]?.focus();
         }
     };
 
-    function obtenerLocalizacionIP(event: FormEvent<HTMLFormElement>, ip: string) {
-        event.preventDefault();
-        return fetch(URL_PETICION + ip)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Localización de la IP:", data);
-                return data;
-            })
-            .catch((error) => {
-                console.error("Error al obtener la localización de la IP:", error);
-            });
-    }
 
     const ipValue = values.join(".");
 
@@ -58,8 +47,7 @@ export default function FormIpAddress() {
                             value={val}
                             onChange={(e) => handleChange(index, e.target.value)}
                             onKeyDown={(e) => handleKeyDown(index, e)}
-                            className=" w-28 h-14 bg-white text-3xl text-center font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-            "
+                            className=" w-28 h-14 bg-white text-3xl text-center font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         {index < 3 && (
                             <span className="text-4xl h-14 font-bold select-none text-white flex items-end">
@@ -71,7 +59,7 @@ export default function FormIpAddress() {
 
             </div>
             <input type="hidden" value={ipValue} />
-            <button type="submit" className="bg-blue-600 cursor-pointer text-white px-8 py-3 rounded-2xl font-bold text-2xl" >Buscar</button>
+            <button type="submit" className="bg-blue-600 cursor-pointer text-white px-8 py-2 rounded-2xl font-bold text-2xl hover:bg-white transition-all duration-300 hover:text-blue-950 ease-in" >Buscar</button>
         </form>
     );
 }
