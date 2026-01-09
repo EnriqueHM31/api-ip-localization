@@ -8,14 +8,13 @@ body {
     background: linear-gradient(180deg,
             #0f172a,
             /* slate-900 */
-            #111827,
+            #131c2e,
             /* gray-900 */
             #556174
             /* gray-700 */
         );
-
-    background-size: 200% 200%;
-    animation: gradientMove 5s linear infinite;
+    background-size: 300% 300%;
+    animation: gradientMove 1s linear infinite;
 
 }
 

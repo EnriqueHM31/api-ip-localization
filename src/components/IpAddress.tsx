@@ -1,5 +1,6 @@
 import { useRef, useState, type KeyboardEvent } from "react";
-
+const apiKey = import.meta.env.VITE_KEY_API_IP;
+const URL_PETICION = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=${apiKey}&ip=`
 export default function IpVerificationCode() {
     const [values, setValues] = useState(["", "", "", ""]);
     const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
@@ -25,6 +26,18 @@ export default function IpVerificationCode() {
         }
     };
 
+    function obtenerLocalizacionIP(ip: string) {
+        return fetch(URL_PETICION + ip)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Localización de la IP:", data);
+                return data;
+            })
+            .catch((error) => {
+                console.error("Error al obtener la localización de la IP:", error);
+            });
+    }
+
     const ipValue = values.join(".");
 
     return (
@@ -41,11 +54,11 @@ export default function IpVerificationCode() {
                         value={val}
                         onChange={(e) => handleChange(index, e.target.value)}
                         onKeyDown={(e) => handleKeyDown(index, e)}
-                        className=" w-28 h-18 bg-white text-3xl text-center font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                        className=" w-28 h-14 bg-white text-3xl text-center font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
             "
                     />
                     {index < 3 && (
-                        <span className="text-4xl h-18 font-bold select-none text-white flex items-end">
+                        <span className="text-4xl h-14 font-bold select-none text-white flex items-end">
                             .
                         </span>
                     )}
@@ -53,6 +66,7 @@ export default function IpVerificationCode() {
             ))}
 
             <input type="hidden" value={ipValue} />
+            <button className="bg-blue-600 cursor-pointer text-white px-8 py-3 rounded-2xl font-bold text-2xl" onClick={() => obtenerLocalizacionIP(ipValue)}>Buscar</button>
         </div>
     );
 }
