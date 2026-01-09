@@ -1,5 +1,5 @@
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
+import Footer from "./components/LandingPage/Footer";
+import NavBar from "./components/LandingPage/NavBar";
 import PagesRoutes from "./routes/pages.routes";
 import { Toaster } from "sonner";
 

@@ -1,5 +1,5 @@
-import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
-import { useLocalizacion } from "../hooks/Localizacion";
+import { obtenerLocalizacionIP } from "../../services/obtenerLocalizacion";
+import { useLocalizacion } from "../../hooks/Localizacion";
 
 export default function FormIpAddress() {
 

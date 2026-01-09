@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa"
-import LinkButton from "./LinkButton"
-import ICONO from "../../public/icon.png"
+import LinkButton from "../Atomos/LinkButton"
+import ICONO from "/icon.png"
 
 
 export default function NavBar() {

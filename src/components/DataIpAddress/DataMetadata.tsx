@@ -1,4 +1,5 @@
-import Item from "./EtiquetaInfo";
+import Item from "../Atomos/EtiquetaInfo";
+
 interface DataMetadataProps {
     country_metadata: {
         calling_code: string;

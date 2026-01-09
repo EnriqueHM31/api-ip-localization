@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
-import Etiqueta from "../components/Etiqueta";
-import FondoWave from "../components/FondoWave";
-import FormIpAddress from "../components/IpAddress";
+import Etiqueta from "../components/Atomos/Etiqueta";
+import FondoWave from "../components/Atomos/FondoWave";
+import FormIpAddress from "../components/sections/IpAddress";
 
 export default function Hero() {
     return (

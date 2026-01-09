@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 //import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
 import type { IpLocationData } from "../types/IpAddress";
-import IpLocationCard from "../components/DataIP";
+import IpLocationCard from "../components/sections/DataIP";
 
 const mockIpLocation = {
     ip: "8.8.8.8",

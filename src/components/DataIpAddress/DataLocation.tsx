@@ -1,4 +1,5 @@
-import Item from "./EtiquetaInfo";
+import Item from "../Atomos/EtiquetaInfo";
+
 
 interface DataLocationProps {
     location: {

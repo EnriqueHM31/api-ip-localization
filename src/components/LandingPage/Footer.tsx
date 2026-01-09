@@ -1,5 +1,5 @@
 import { FaGithub } from "react-icons/fa";
-import FondoWave from "./FondoWave";
+import FondoWave from "../Atomos/FondoWave";
 
 export default function Footer() {
     return (

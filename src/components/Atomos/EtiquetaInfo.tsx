@@ -1,4 +1,4 @@
-import { highlightColors } from "../constants";
+import { highlightColors } from "../../constants";
 interface ItemProps {
     label: string;
     value: string;

@@ -1,9 +1,9 @@
-import type { IpLocationData } from "../types/IpAddress.d";
-import DataLocation from "./DataLocation";
-import DataCountry from "./DataCountry";
-import DataMetadata from "./DataMetadata";
-import DataCurrency from "./DataCurrency";
-import HeaderInfo from "./HeaderInfo";
+import type { IpLocationData } from "../../types/IpAddress";
+import DataLocation from "../DataIpAddress/DataLocation";
+import DataCountry from "../DataIpAddress/DataCountry";
+import DataMetadata from "../DataIpAddress/DataMetadata";
+import DataCurrency from "../DataIpAddress/DataCurrency";
+import HeaderInfo from "../DataIpAddress/HeaderInfo";
 interface Props {
     data: IpLocationData;
 }

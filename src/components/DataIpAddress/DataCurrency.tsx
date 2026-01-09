@@ -1,4 +1,4 @@
-import Item from "./EtiquetaInfo";
+import Item from "../Atomos/EtiquetaInfo";
 
 interface DataCurrencyProps {
     currency: {

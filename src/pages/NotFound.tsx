@@ -1,6 +1,6 @@
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import FondoWave from "../components/FondoWave";
+import FondoWave from "../components/Atomos/FondoWave";
 export default function NotFound() {
     return (
         <div className="flex flex-col items-center justify-center py-5 gap-8 min-h-[70vh]">
