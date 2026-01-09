@@ -3,3 +3,33 @@
 body {
     font-family: 'Open Sans Variable', sans-serif;
 }
+
+.animated-bg {
+    background: linear-gradient(180deg,
+            #0f172a,
+            /* slate-900 */
+            #111827,
+            /* gray-900 */
+            #556174
+            /* gray-700 */
+        );
+
+    background-size: 200% 200%;
+    animation: gradientMove 5s linear infinite;
+
+}
+
+/* Animación */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
