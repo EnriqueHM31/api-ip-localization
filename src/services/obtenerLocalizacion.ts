@@ -1,5 +1,6 @@
 import type { FormEvent } from "react";
-import { URL_PETICION } from "../config/IpAddress";
+import { URL_PETICION } from "../config";
+import { toast } from "sonner";
 
 
 export function obtenerLocalizacionIP(event: FormEvent<HTMLFormElement>, ip: string) {
@@ -7,10 +8,10 @@ export function obtenerLocalizacionIP(event: FormEvent<HTMLFormElement>, ip: str
     return fetch(URL_PETICION + ip)
         .then((response) => response.json())
         .then((data) => {
-            console.log("Localización de la IP:", data);
+            toast.success("Se encontró la localización de la IP");
             return data;
         })
-        .catch((error) => {
-            console.error("Error al obtener la localización de la IP:", error);
+        .catch(() => {
+            toast.error("Error al obtener la localización de la IP");
         });
 }
