@@ -58,8 +58,8 @@ export default function PageInfoIp() {
                 return;
             };
             setTimeout(async () => {
-                //const response = await obtenerLocalizacionIP({ ip });
-                const response = mockIpLocation as IpLocationData;
+                const response = await obtenerLocalizacionIP({ ip });
+                //const response = mockIpLocation as IpLocationData;
                 setData(response as IpLocationData);
             }, 3000);
         }
