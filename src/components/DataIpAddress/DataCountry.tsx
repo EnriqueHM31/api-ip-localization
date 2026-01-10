@@ -1,15 +1,6 @@
 import { valueOrNS } from "../../utils";
 import Item from "../Atomos/EtiquetaInfo";
-
-interface DataCountryProps {
-    location: {
-        country_name_official: string;
-        country_capital: string;
-        continent_name: string;
-        is_eu: boolean;
-    };
-}
-
+import type { DataCountryProps } from "../../types/components";
 
 export default function DataCountry({ location }: DataCountryProps) {
     return (

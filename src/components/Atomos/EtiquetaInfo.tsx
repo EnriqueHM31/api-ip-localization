@@ -1,11 +1,5 @@
 import { highlightColors } from "../../constants";
-interface ItemProps {
-    label: string;
-    value: string;
-    highlight?: "success" | "danger";
-    colSpan?: boolean;
-}
-
+import type { ItemProps } from "../../types/components";
 
 export default function Item({ label, value, highlight, colSpan }: ItemProps) {
     return (

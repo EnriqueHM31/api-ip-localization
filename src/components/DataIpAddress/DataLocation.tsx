@@ -1,17 +1,7 @@
 import { valueOrNS } from "../../utils";
 import Item from "../Atomos/EtiquetaInfo";
+import type { DataLocationProps } from "../../types/components";
 
-
-interface DataLocationProps {
-    location: {
-        country_name: string;
-        state_prov: string;
-        city: string;
-        zipcode: string;
-        latitude: string;
-        longitude: string;
-    };
-}
 export default function DataLocation({ location }: DataLocationProps) {
     return (
         <section className="w-full max-w-7xl mx-auto ">

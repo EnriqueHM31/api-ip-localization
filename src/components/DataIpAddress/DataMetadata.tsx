@@ -1,13 +1,6 @@
 import { valueOrNS } from "../../utils";
 import Item from "../Atomos/EtiquetaInfo";
-
-interface DataMetadataProps {
-    country_metadata: {
-        calling_code: string;
-        tld: string;
-        languages: string[];
-    };
-}
+import type { DataMetadataProps } from "../../types/components";
 
 export default function DataMetadata({ country_metadata }: DataMetadataProps) {
     return (

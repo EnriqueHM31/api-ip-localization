@@ -1,11 +1,4 @@
-interface HeaderInfoProps {
-    ip: string;
-    location: {
-        country_emoji: string;
-        country_flag: string;
-        country_name: string;
-    };
-}
+import type { HeaderInfoProps } from "../../types/components";
 
 export default function HeaderInfo({ ip, location }: HeaderInfoProps) {
     return (

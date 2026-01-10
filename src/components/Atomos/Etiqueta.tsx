@@ -1,7 +1,4 @@
-interface PropsEtiqueta {
-    text: string;
-    icon: React.ReactNode;
-}
+import type { PropsEtiqueta } from "../../types/components";
 
 export default function Etiqueta({ text, icon }: PropsEtiqueta) {
     return (

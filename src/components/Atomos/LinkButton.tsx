@@ -1,7 +1,4 @@
-interface PropsLinkButton {
-    text: string;
-    icon: React.ReactNode;
-}
+import type { PropsLinkButton } from "../../types/components";
 
 export default function LinkButton({ text, icon }: PropsLinkButton) {
     return (

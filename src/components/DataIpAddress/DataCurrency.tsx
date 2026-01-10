@@ -1,13 +1,6 @@
 import { valueOrNS } from "../../utils";
 import Item from "../Atomos/EtiquetaInfo";
-
-interface DataCurrencyProps {
-    currency: {
-        code: string;
-        name: string;
-        symbol: string;
-    };
-}
+import type { DataCurrencyProps } from "../../types/components";
 
 export default function DataCurrency({ currency }: DataCurrencyProps) {
     return (

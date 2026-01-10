@@ -1,6 +1,4 @@
-type LoadingProps = {
-    text?: string;
-};
+import type { LoadingProps } from "../../types/components";
 
 export default function Loading({ text = "Cargando..." }: LoadingProps) {
     return (

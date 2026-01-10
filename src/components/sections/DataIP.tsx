@@ -1,14 +1,12 @@
-import type { IpLocationData } from "../../types/IpAddress";
-import DataLocation from "../DataIpAddress/DataLocation";
+import type { PropsIpLocationCard } from "../../types/components";
 import DataCountry from "../DataIpAddress/DataCountry";
-import DataMetadata from "../DataIpAddress/DataMetadata";
 import DataCurrency from "../DataIpAddress/DataCurrency";
+import DataLocation from "../DataIpAddress/DataLocation";
+import DataMetadata from "../DataIpAddress/DataMetadata";
 import HeaderInfo from "../DataIpAddress/HeaderInfo";
-interface Props {
-    data: IpLocationData;
-}
 
-export default function IpLocationCard({ data }: Props) {
+
+export default function IpLocationCard({ data }: PropsIpLocationCard) {
     const { ip, location, country_metadata, currency } = data;
 
     return (

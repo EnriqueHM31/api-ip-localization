@@ -1,11 +1,6 @@
 import { useLocalizacion } from "../../hooks/Localizacion";
+import type { PropsFormIpAddress } from "../../types/components";
 
-interface PropsFormIpAddress {
-    styleForm?: string;
-    styleInput?: string;
-    stylePoint?: string;
-    styleButton?: string;
-}
 export default function FormIpAddress({ styleForm = "flex-col max-w-4xl ", styleInput = "w-28 h-14 text-3xl my-5", stylePoint = "text-4xl h-14", styleButton = "px-8 py-2 text-2xl" }: PropsFormIpAddress) {
 
     const { values, inputsRef, handleChange, handleKeyDown, ipValue, handleBuscar } = useLocalizacion();
