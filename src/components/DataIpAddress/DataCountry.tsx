@@ -1,3 +1,4 @@
+import { valueOrNS } from "../../utils";
 import Item from "../Atomos/EtiquetaInfo";
 
 interface DataCountryProps {
@@ -16,9 +17,9 @@ export default function DataCountry({ location }: DataCountryProps) {
             <h2 className="text-2xl font-semibold mb-4">🌍 Country Information</h2>
 
             <div className="flex flex-wrap rounded-xl py-6 gap-6">
-                <Item label="Official Name" value={location.country_name_official} />
-                <Item label="Capital" value={location.country_capital} />
-                <Item label="Continent" value={location.continent_name} />
+                <Item label="Official Name" value={valueOrNS(location.country_name_official)} />
+                <Item label="Capital" value={valueOrNS(location.country_capital)} />
+                <Item label="Continent" value={valueOrNS(location.continent_name)} />
                 <Item
                     label="European Union"
                     value={location.is_eu ? "Yes" : "No"}

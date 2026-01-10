@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-//import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
+import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
 import Loading from "../components/Atomos/Loading";
 import IpLocationCard from "../components/sections/DataIP";
 import { useLocalizacion } from "../hooks/Localizacion";
@@ -57,10 +57,11 @@ export default function PageInfoIp() {
                 navigate("/");
                 return;
             };
-            setTimeout(() => {
+            setTimeout(async () => {
                 //const response = await obtenerLocalizacionIP({ ip });
-                setData(mockIpLocation as IpLocationData);
-            }, 5000);
+                const response = mockIpLocation as IpLocationData;
+                setData(response as IpLocationData);
+            }, 3000);
         }
 
         ObtenerDatosIp();
@@ -76,7 +77,7 @@ export default function PageInfoIp() {
             {!data ?
                 <Loading text="Buscando localización..." />
                 :
-                <IpLocationCard data={mockIpLocation as IpLocationData} />
+                <IpLocationCard data={data as IpLocationData} />
             }
         </div >
     );
