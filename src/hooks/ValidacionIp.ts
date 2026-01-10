@@ -10,8 +10,6 @@ export function useValidationIp(ip?: string): UseValidationIpResult {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<UseValidationIpResult["error"]>();
 
-
-
     useEffect(() => {
         if (!ip) return;
 
