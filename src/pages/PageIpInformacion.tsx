@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import Loading from "../components/Atomos/Loading";
 import IpLocationCard from "../components/sections/DataIP";
-import NotFound from "./NotFound";
+import NotFound from "./Page404";
 import { useValidationIp } from "../hooks/ValidacionIp";
 
 export default function PageInfoIp() {

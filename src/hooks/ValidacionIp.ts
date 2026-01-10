@@ -2,15 +2,7 @@ import { useEffect, useState } from "react";
 import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
 import type { IpLocationData } from "../types/IpAddress";
 import { normalizeError } from "../utils/error";
-
-type UseValidationIpResult = {
-    data?: IpLocationData;
-    loading: boolean;
-    error?: {
-        type: string;
-        message: string;
-    };
-};
+import type { UseValidationIpResult } from "../types/hooks";
 
 export function useValidationIp(ip?: string): UseValidationIpResult {
 

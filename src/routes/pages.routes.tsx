@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
-import PageHero from "../pages/Hero";
-import PageNotFound from "../pages/NotFound";
-import PageInfoIp from '../pages/InfoIp';
+import PageHome from "../pages/PageHome";
+import Page404 from "../pages/Page404";
+import PageIpInformacion from '../pages/PageIpInformacion';
 
 export default function PagesRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<PageHero />} />
-            <Route path=":ip" element={<PageInfoIp />} />
-            <Route path="*" element={<PageNotFound />} />
+            <Route path="/" element={<PageHome />} />
+            <Route path=":ip" element={<PageIpInformacion />} />
+            <Route path="*" element={<Page404 />} />
         </Routes>
     )
 }
