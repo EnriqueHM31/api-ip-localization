@@ -1,4 +1,4 @@
-import type { PropsIpLocationCard } from "../../types/components";
+import type { PropsIpLocationCard } from "../../types/Components";
 import DataCountry from "../DataIpAddress/DataCountry";
 import DataCurrency from "../DataIpAddress/DataCurrency";
 import DataLocation from "../DataIpAddress/DataLocation";

@@ -1,4 +1,4 @@
-import type { HeaderInfoProps } from "../../types/components";
+import type { HeaderInfoProps } from "../../types/Components";
 
 export default function HeaderInfo({ ip, location }: HeaderInfoProps) {
     return (

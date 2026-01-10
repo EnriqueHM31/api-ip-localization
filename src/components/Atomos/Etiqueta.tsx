@@ -1,4 +1,4 @@
-import type { PropsEtiqueta } from "../../types/components";
+import type { PropsEtiqueta } from "../../types/Components";
 
 export default function Etiqueta({ text, icon }: PropsEtiqueta) {
     return (
