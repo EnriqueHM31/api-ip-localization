@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
+import { toast } from "sonner";
 import Loading from "../components/Atomos/Loading";
 import IpLocationCard from "../components/sections/DataIP";
 import { useLocalizacion } from "../hooks/Localizacion";
+import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
 import type { IpLocationData } from "../types/IpAddress";
+import { normalizeError } from "../utils/error";
 import NotFound from "./NotFound";
 
-const mockIpLocation = {
+/*const mockIpLocation = {
     ip: "8.8.8.8",
     location: {
         continent_code: "NA",
@@ -40,7 +42,7 @@ const mockIpLocation = {
         symbol: "$",
     },
 };
-
+*/
 
 export default function PageInfoIp() {
     const { ip } = useParams();
@@ -49,31 +51,36 @@ export default function PageInfoIp() {
     const { isValidIP } = useLocalizacion();
 
     useEffect(() => {
-
-        async function ObtenerDatosIp() {
-
-            console.log(ip);
-            if (!ip) {
-                navigate("/");
-                return;
-            };
-            setTimeout(async () => {
-                const response = await obtenerLocalizacionIP({ ip });
-                //const response = mockIpLocation as IpLocationData;
-                setData(response as IpLocationData);
-            }, 3000);
+        if (!ip) {
+            navigate("/");
+            return;
         }
 
+
+        const ObtenerDatosIp = async () => {
+            const response = await obtenerLocalizacionIP({ ip });
+            setData(response as IpLocationData);
+        };
+
         ObtenerDatosIp();
+
     }, [ip, navigate]);
 
     if (!isValidIP(ip as string)) {
         return <NotFound />
     }
 
+    if (data?.message) {
+        navigate("/");
+        const Error = normalizeError(data);
+        toast.error(`${Error.type}: ${Error.message}`);
+        return
+    }
+
+
+
     return (
         <div className="flex flex-col items-center justify-center text-white  ">
-
             {!data ?
                 <Loading text="Buscando localización..." />
                 :

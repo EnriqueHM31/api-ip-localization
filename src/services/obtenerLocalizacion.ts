@@ -3,14 +3,20 @@ import { toast } from "sonner";
 import type { IpLocationData } from "../types/IpAddress";
 
 
-export function obtenerLocalizacionIP({ ip }: { ip: string }) {
-    return fetch(URL_PETICION + ip)
-        .then((response) => response.json())
-        .then((data: IpLocationData) => {
-            toast.success("Se encontró la localización de la IP");
-            return data;
-        })
-        .catch(() => {
-            toast.error("Error al obtener la localización de la IP");
-        });
+export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<IpLocationData> {
+    try {
+        const response = await fetch(URL_PETICION + ip);
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.log({ data })
+            return data
+        }
+
+        toast.success("Se encontró la localización de la IP");
+        return data as IpLocationData;
+    } catch (error) {
+        toast.error("No se pudo obtener la localización de la IP");
+        throw error; // ❗ importante
+    }
 }

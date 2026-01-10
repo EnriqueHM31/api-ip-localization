@@ -24,4 +24,5 @@ export type IpLocationData = {
         name: string;
         symbol: string;
     };
+    message?: string
 };

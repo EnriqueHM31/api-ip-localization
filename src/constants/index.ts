@@ -1,3 +1,4 @@
+
 export const BottonsKeys = {
     espacio: "Backspace",
     vacio: "",
@@ -8,3 +9,8 @@ export const highlightColors = {
     danger: "danger",
 
 } as const;
+
+export const TypesErrors = {
+    Bogon: { type: "BOGON", message: "La IP es privada o local y no puede ser geolocalizada", palabraIncluida: "bogon", codigo: "1612769" },
+    Desconocido: { type: "UNKNOWN", message: "Error desconocido" },
+}
