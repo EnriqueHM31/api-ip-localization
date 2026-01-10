@@ -10,7 +10,7 @@ export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<I
 
         if (!response.ok) {
             console.log({ data })
-            return data
+            return data as IpLocationData;
         }
 
         toast.success("Se encontró la localización de la IP");

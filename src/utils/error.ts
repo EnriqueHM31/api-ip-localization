@@ -10,6 +10,13 @@ export const normalizeError = (data: IpLocationData) => {
         };
     }
 
+    if (data?.message?.includes(TypesErrors.Dominio.codigo) || data?.message?.includes(TypesErrors.Dominio.palabraIncluida)) {
+        return {
+            type: TypesErrors.Dominio.type,
+            message: TypesErrors.Dominio.message,
+        };
+    }
+
     return {
         type: TypesErrors.Desconocido.type,
         message: TypesErrors.Desconocido.message,
