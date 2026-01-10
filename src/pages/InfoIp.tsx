@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 //import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
-import type { IpLocationData } from "../types/IpAddress";
+import Loading from "../components/Atomos/Loading";
 import IpLocationCard from "../components/sections/DataIP";
 import { useLocalizacion } from "../hooks/Localizacion";
+import type { IpLocationData } from "../types/IpAddress";
 import NotFound from "./NotFound";
-import Loading from "../components/Atomos/Loading";
 
 const mockIpLocation = {
     ip: "8.8.8.8",
@@ -57,9 +57,8 @@ export default function PageInfoIp() {
                 navigate("/");
                 return;
             };
-            //const response = await obtenerLocalizacionIP({ ip });
             setTimeout(() => {
-
+                //const response = await obtenerLocalizacionIP({ ip });
                 setData(mockIpLocation as IpLocationData);
             }, 5000);
         }
@@ -68,17 +67,17 @@ export default function PageInfoIp() {
     }, [ip, navigate]);
 
     if (!isValidIP(ip as string)) {
-        console.log("no es valido");
         return <NotFound />
     }
 
     return (
-        <div className="flex flex-col items-center justify-center text-white py-10 ">
+        <div className="flex flex-col items-center justify-center text-white  ">
 
             {!data ?
                 <Loading text="Buscando localización..." />
                 :
-                <IpLocationCard data={mockIpLocation as IpLocationData} />}
-        </div>
+                <IpLocationCard data={mockIpLocation as IpLocationData} />
+            }
+        </div >
     );
 }
