@@ -9,6 +9,7 @@ import type { IpLocationData } from "../types/IpAddress";
 import { normalizeError } from "../utils/error";
 import NotFound from "./NotFound";
 
+
 /*const mockIpLocation = {
     ip: "8.8.8.8",
     location: {
@@ -56,7 +57,6 @@ export default function PageInfoIp() {
             return;
         }
 
-
         const ObtenerDatosIp = async () => {
             const response = await obtenerLocalizacionIP({ ip });
             setData(response as IpLocationData);
@@ -77,15 +77,15 @@ export default function PageInfoIp() {
         return
     }
 
-
-
     return (
-        <div className="flex flex-col items-center justify-center text-white  ">
+        <div className="flex flex-col items-center justify-center text-white px-2 ">
             {!data ?
                 <Loading text="Buscando localización..." />
                 :
                 <IpLocationCard data={data as IpLocationData} />
             }
+
+
         </div >
     );
 }

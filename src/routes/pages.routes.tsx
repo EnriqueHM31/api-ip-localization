@@ -9,7 +9,6 @@ export default function PagesRoutes() {
             <Route path="/" element={<PageHero />} />
             <Route path=":ip" element={<PageInfoIp />} />
             <Route path="*" element={<PageNotFound />} />
-
         </Routes>
     )
 }
