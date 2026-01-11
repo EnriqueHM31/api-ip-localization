@@ -1,10 +1,11 @@
-# Ì≥å api-ip-localization
+# ÔøΩÔøΩÔøΩ api-ip-localization
 
 **Aplicaci√≥n frontend para obtener la geolocalizaci√≥n de una IP y mostrar informaci√≥n relevante (ubicaci√≥n, moneda, metadata, etc.) usando la API de ipgeolocation.io.**
 
 ---
 
-## Ì≥ã Tabla de contenido
+## ÔøΩÔøΩÔøΩ Tabla de contenido
+
 - [Descripci√≥n](#descripci√≥n)
 - [Demo / Uso](#demo--uso)
 - [Tecnolog√≠as](#tecnolog√≠as)
@@ -21,13 +22,13 @@
 
 ---
 
-## Ì≥ù Descripci√≥n
+## ÔøΩÔøΩÔøΩ Descripci√≥n
 
 `api-ip-localization` es una aplicaci√≥n creada con **React + TypeScript + Vite** que permite introducir una IP y obtener su geolocalizaci√≥n mediante la API p√∫blica de **ipgeolocation.io**. Incluye validaci√≥n de IP, manejo y normalizaci√≥n de errores, toasts para feedback (con `sonner`) y una UI responsive con **TailwindCSS** y **Framer Motion**.
 
 ---
 
-## Ì∫Ä Demo / Uso
+## ÔøΩÔøΩÔøΩ Demo / Uso
 
 1. Clona el repositorio.
 2. Crea el archivo de variables de entorno con tu clave de la API (ver secci√≥n "Variables de entorno").
@@ -42,7 +43,8 @@ npm run dev
 
 ---
 
-## Ì∑∞ Tecnolog√≠as
+## ÔøΩÔøΩÔøΩ Tecnolog√≠as
+
 - React 19 + TypeScript
 - Vite
 - TailwindCSS
@@ -58,6 +60,7 @@ Dependencias completas en `package.json`.
 ## ‚öôÔ∏è Instalaci√≥n
 
 Requisitos:
+
 - Node.js (>= 18 recomendado)
 - npm o yarn
 
@@ -72,7 +75,7 @@ npm run dev
 
 ---
 
-## Ì¥ê Variables de entorno
+## ÔøΩÔøΩÔøΩ Variables de entorno
 
 Crea un archivo `.env` o `.env.local` en la ra√≠z con la siguiente variable:
 
@@ -84,7 +87,8 @@ VITE_KEY_API_IP=tu_api_key_de_ipgeolocation
 
 ---
 
-## Ì≥¶ Scripts disponibles
+## ÔøΩÔøΩÔøΩ Scripts disponibles
+
 - `npm run dev` ‚Äî inicia servidor de desarrollo (Vite)
 - `npm run build` ‚Äî compila (TypeScript + Vite build)
 - `npm run preview` ‚Äî sirve la build localmente
@@ -92,7 +96,7 @@ VITE_KEY_API_IP=tu_api_key_de_ipgeolocation
 
 ---
 
-## Ì≥Å Estructura del proyecto (resumen)
+## ÔøΩÔøΩÔøΩ Estructura del proyecto (resumen)
 
 ```
 src/
@@ -125,23 +129,28 @@ src/
 
 ---
 
-## Ì¥ß Arquitectura y componentes clave
+## ÔøΩÔøΩÔøΩ Arquitectura y componentes clave
 
 - `src/services/obtenerLocalizacion.ts`
+
   - Construye la petici√≥n usando `URL_PETICION + ip` y realiza `fetch`.
   - Muestra toasts en caso de √©xito o error y propaga el error para manejo en hooks.
 
 - `src/config/index.ts`
+
   - `apiKey = import.meta.env.VITE_KEY_API_IP`
   - `URL_PETICION = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=${apiKey}&ip=`
 
 - `src/hooks/Localizacion.ts`
+
   - Gestor de inputs en 4 campos (octetos), validaci√≥n b√°sica (0-255) y navegaci√≥n a `/:ip`.
 
 - `src/hooks/ValidacionIp.ts`
+
   - Orquesta la llamada a `obtenerLocalizacionIP`, maneja `loading`, `data` y `error`.
 
 - `src/utils/error.ts` y `src/constants/index.ts`
+
   - Traducci√≥n/normalizaci√≥n de respuestas de error de la API (`BOGON`, `DOMINIO`, `UNKNOWN`).
 
 - `src/types/IpAddress.d.ts`
@@ -149,7 +158,7 @@ src/
 
 ---
 
-## Ì≥° API y formatos
+## ÔøΩÔøΩÔøΩ API y formatos
 
 - Endpoint utilizado:
 
@@ -170,13 +179,14 @@ https://api.ipgeolocation.io/v2/ipgeo?apiKey=API_KEY&ip=IP_A_CONSULTAR
 La app muestra toasts con `sonner` y, en caso de error al navegar a `/IP`, redirige al home.
 
 Consejos de debug:
+
 - Revisar pesta√±a Network en DevTools.
 - Confirmar que `VITE_KEY_API_IP` es v√°lida.
 - Revisar logs en consola.
 
 ---
 
-## Ì¥ù Contribuci√≥n
+## ÔøΩÔøΩÔøΩ Contribuci√≥n
 
 - Abre un issue para proponer mejoras o reportar fallos.
 - Crea PRs descriptivos en ramas separadas.
@@ -185,15 +195,10 @@ Consejos de debug:
 
 ---
 
-## Ì≤° Recomendaciones
+## ÔøΩÔøΩÔøΩ Recomendaciones
 
 - Considera mover la clave de la API a un backend/proxy en producci√≥n para evitar exponerla.
 - A√±adir pruebas unitarias / e2e y CI (GitHub Actions) para robustecer el proyecto.
-
----
-
-## Ì≥Ñ Licencia
-MIT ‚Äî a√±ade un fichero `LICENSE` si quieres especificar la licencia formalmente.
 
 ---
 
