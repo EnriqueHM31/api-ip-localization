@@ -47,6 +47,7 @@ export function useLocalizacion() {
             toast.error("La IP introducida no es válida");
             return;
         }
+        setValues(["", "", "", ""]);
         navigate(`/${ipValue}`);
     };
 
