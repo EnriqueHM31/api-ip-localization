@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { obtenerLocalizacionIP } from "../services/obtenerLocalizacion";
 import type { IpLocationData } from "../types/IpAddress";
 import { normalizeError } from "../utils/error";
-import type { UseValidationIpResult } from "../types/hooks";
+import type { UseValidationIpResult } from "../types/Hooks";
 
 export function useValidationIp(ip?: string): UseValidationIpResult {
 
@@ -16,7 +16,7 @@ export function useValidationIp(ip?: string): UseValidationIpResult {
         const fetchIp = async () => {
             setLoading(true);
             setError(undefined);
-
+            console.log({ ip })
             const response = await obtenerLocalizacionIP({ ip });
 
             // ❌ Error de API
