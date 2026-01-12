@@ -4,12 +4,15 @@ import type { IpLocationData } from "../types/IpAddress";
 
 
 export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<IpLocationData> {
+    const url = URL_PETICION + `/${ip}`;
+    console.log({ url })
     try {
-        const response = await fetch(URL_PETICION + ip);
+        const response = await fetch(url)
+        console.log({ response })
         const data = await response.json();
+        console.log({ data })
 
         if (!response.ok) {
-            console.log({ data })
             return data as IpLocationData;
         }
 
