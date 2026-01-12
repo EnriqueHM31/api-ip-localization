@@ -16,7 +16,6 @@ export function useValidationIp(ip?: string): UseValidationIpResult {
         const fetchIp = async () => {
             setLoading(true);
             setError(undefined);
-            console.log({ ip })
             const response = await obtenerLocalizacionIP({ ip });
 
             // ❌ Error de API

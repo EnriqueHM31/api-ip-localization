@@ -5,12 +5,9 @@ import type { IpLocationData } from "../types/IpAddress";
 
 export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<IpLocationData> {
     const url = URL_PETICION + `/${ip}`;
-    console.log({ url })
     try {
         const response = await fetch(url)
-        console.log({ response })
         const data = await response.json();
-        console.log({ data })
 
         if (!response.ok) {
             return data as IpLocationData;
@@ -19,7 +16,8 @@ export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<I
         toast.success("Se encontró la localización de la IP");
         return data as IpLocationData;
     } catch (error) {
-        toast.error("No se pudo obtener la localización de la IP");
-        throw error; // ❗ importante
+        toast.error("No se pudo obtener la localización de la IP" + error);
+        const data = { message: "Error en el servidor" }
+        return data as IpLocationData;
     }
 }
