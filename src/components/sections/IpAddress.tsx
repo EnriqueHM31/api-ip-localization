@@ -23,6 +23,7 @@ export default function FormIpAddress({ styleForm = "flex-col max-w-4xl ", style
                             type="text"
                             inputMode="numeric"
                             maxLength={3}
+                            id={`input-${index}`}
                             value={val}
                             onChange={(e) => handleChange(index, e.target.value)}
                             onKeyDown={(e) => handleKeyDown(index, e)}
