@@ -1,8 +1,8 @@
-import type { LoadingProps } from "../../types/components";
+import type { LoadingProps } from "../../types/Components";
 
 export default function Loading({ text = "Cargando..." }: LoadingProps) {
     return (
-        <div className="flex items-center justify-center min-h-[40vh]">
+        <div className="flex items-center justify-center min-h-[90dvh]">
             <div className="flex text-5xl font-bold text-white">
                 {text.split("").map((char, index) => (
                     <span
