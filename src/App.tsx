@@ -1,7 +1,8 @@
+import { Toaster } from "sonner";
 import Footer from "./components/LandingPage/Footer";
 import NavBar from "./components/LandingPage/NavBar";
 import PagesRoutes from "./routes/pages.routes";
-import { Toaster } from "sonner";
+import FondoWave from "./components/Atomos/FondoWave";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <div className="w-full min-h-screen animated-bg flex pt-5 flex-col relative h-full ">
         <NavBar />
         <PagesRoutes />
+        <FondoWave />
         <Footer />
       </div>
       <Toaster
