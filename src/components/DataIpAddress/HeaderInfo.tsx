@@ -2,9 +2,9 @@ import type { HeaderInfoProps } from "../../types/Components";
 
 export default function HeaderInfo({ ip, location }: HeaderInfoProps) {
     return (
-        <header className="flex items-center justify-between border-b border-gray-400 py-6 w-full max-w-7xl" >
+        <header className="flex flex-col md:flex-row items-center justify-between border-b border-gray-400 py-6 w-full max-w-7xl gap-6 md:gap-0" >
             <div>
-                <h1 className="text-4xl font-bold text-center text-white">
+                <h1 className="text-xl md:text-4xl font-bold text-center text-white">
                     Información de la IP {ip}
                 </h1>
             </div>
