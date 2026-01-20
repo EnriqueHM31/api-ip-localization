@@ -1,11 +1,18 @@
+import { useState } from "react";
 import {
     FaEnvelope,
     FaMapMarkerAlt
 } from "react-icons/fa";
 import { IoCopy } from "react-icons/io5";
 import { toast } from "sonner";
+import { enviarEmail } from "../../services/email.service";
 
 export default function Footer() {
+
+    const [dataEmail, setDataEmail] = useState({
+        email: "",
+        mensaje: ""
+    });
 
     const handleCopiarEmail = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 
@@ -17,6 +24,43 @@ export default function Footer() {
         e.currentTarget.blur();
         toast.success("Correo electrónico copiado");
     }
+
+    const handleSubmitEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(dataEmail);
+        if (!dataEmail.email) {
+            toast.error("El email es requerido");
+            return;
+        }
+
+        if (!dataEmail.mensaje) {
+            toast.error("El mensaje es requerido");
+            return;
+        }
+
+        const data = await enviarEmail({
+            email: dataEmail.email,
+            mensaje: dataEmail.mensaje
+        })
+
+        console.log({ data });
+        if (data.error !== null) {
+            toast.error(data.error);
+            return;
+        }
+        toast.success(data.message);
+
+        setDataEmail({
+            email: "",
+            mensaje: ""
+        });
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setDataEmail((prev) => ({ ...prev, [name]: value }));
+    }
+
 
     return (
         <div className="relative">
@@ -63,16 +107,25 @@ export default function Footer() {
                                 Enviar comentarios
                             </h4>
 
-                            <form className="space-y-3">
+                            <form className="space-y-3" onSubmit={(e) => handleSubmitEmail(e)}>
                                 <input
                                     type="email"
                                     placeholder="Email"
+                                    name="email"
+                                    id="email-form"
+                                    autoComplete="on"
                                     className="w-full rounded-md bg-white px-4 py-2 text-sm  text-blue-950 outline-none ring-1 ring-zinc-700 focus:ring-2 focus:ring-blue-600"
+                                    onChange={(e) => handleChange(e)}
+                                    value={dataEmail.email}
                                 />
                                 <input
                                     type="text"
                                     placeholder="Comentario"
+                                    name="mensaje"
+                                    id="mensaje-email"
                                     className="w-full rounded-md bg-white px-4 py-2 text-sm text-blue-950 outline-none ring-1 ring-zinc-700 focus:ring-2 focus:ring-blue-600"
+                                    onChange={(e) => handleChange(e)}
+                                    value={dataEmail.mensaje}
                                 />
                                 <button
                                     type="submit"
