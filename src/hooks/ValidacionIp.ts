@@ -26,6 +26,12 @@ export function useValidationIp(ip?: string): UseValidationIpResult {
                 return;
             }
 
+            if (response.error) {
+                const normalized = normalizeError(response);
+                setError(normalized);
+                setLoading(false);
+                return;
+            }
             setData(response as IpLocationData);
             setLoading(false);
         };
