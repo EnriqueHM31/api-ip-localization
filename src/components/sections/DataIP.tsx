@@ -14,7 +14,7 @@ export default function IpLocationCard({ data }: PropsIpLocationCard) {
             {/* ================= HEADER ================= */}
             <HeaderInfo ip={ip} location={location} />
 
-            <div className="flex flex-col gap-6 w-full max-w-7xl mx-auto py-10 mb-40">
+            <div className="flex flex-col gap-6 w-full max-w-7xl mx-auto py-10 mb-40 px-4 md:px-0">
 
                 {/* ================= LOCATION ================= */}
                 <DataLocation location={location} />

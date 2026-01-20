@@ -12,10 +12,9 @@ export default function PageInfoIp() {
 
     const { data, loading, error } = useValidationIp(ip);
 
-    // 🔁 navegación por error
     useEffect(() => {
         if (error) {
-            toast.error(`${error.type}: ${error.message}`, { duration: 3000 });
+            toast.error(`${error.message}`, { duration: 3000 });
             navigate("/");
         }
     }, [error, navigate]);
