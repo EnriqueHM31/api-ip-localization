@@ -1,4 +1,7 @@
 
+
+export const paginbaDondeEsEnviadoEmail = "Geolocalizacion de IP";
+
 export const BottonsKeys = {
     espacio: "Backspace",
     vacio: "",
@@ -53,3 +56,4 @@ export const TypesErrors = {
         message: "Error desconocido"
     },
 } as const;
+
