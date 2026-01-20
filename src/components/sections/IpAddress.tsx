@@ -11,7 +11,7 @@ export default function FormIpAddress({ styleForm = "flex-col max-w-4xl ", style
                 e.preventDefault();
                 handleBuscar();
             }}
-            className={`flex w-full flex-col items-center gap-5 ${styleForm}`}
+            className={`flex w-full  items-center gap-5 ${styleForm}`}
         >
             <div className="flex justify-end gap-2">
                 {values.map((val, index) => (
