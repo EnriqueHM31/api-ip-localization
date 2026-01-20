@@ -1,4 +1,4 @@
-import type { PropsIpLocationCard } from "../../types/components";
+import type { PropsIpLocationCard } from "../../types/Components";
 import DataCountry from "../DataIpAddress/DataCountry";
 import DataCurrency from "../DataIpAddress/DataCurrency";
 import DataLocation from "../DataIpAddress/DataLocation";
@@ -14,7 +14,7 @@ export default function IpLocationCard({ data }: PropsIpLocationCard) {
             {/* ================= HEADER ================= */}
             <HeaderInfo ip={ip} location={location} />
 
-            <div className="flex flex-col gap-6 w-full max-w-7xl mx-auto py-10">
+            <div className="flex flex-col gap-6 w-full max-w-7xl mx-auto py-10 mb-40">
 
                 {/* ================= LOCATION ================= */}
                 <DataLocation location={location} />
