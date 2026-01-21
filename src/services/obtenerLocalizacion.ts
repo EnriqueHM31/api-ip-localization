@@ -1,23 +1,25 @@
 import { URL_PETICION } from "../config";
-import { toast } from "sonner";
 import type { IpLocationData } from "../types/IpAddress";
 
-
-export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<IpLocationData> {
+interface responseIpGeolocalizacion {
+    message: string;
+    error: string;
+    data: IpLocationData | [];
+}
+export async function obtenerLocalizacionIP({ ip, }: { ip: string; }): Promise<responseIpGeolocalizacion> {
     const url = URL_PETICION + `/${ip}`;
     try {
+        console.log(url);
         const response = await fetch(url)
-        const data = await response.json();
+        console.log(response);
+        const json = await response.json();
+        console.log(json);
 
-        if (!response.ok) {
-            return data as IpLocationData;
-        }
+        const { message, error, data } = json as responseIpGeolocalizacion;
 
-        toast.success("Se encontró la localización de la IP");
-        return data as IpLocationData;
+        return { message, error, data };
     } catch (error) {
-        toast.error("No se pudo obtener la localización de la IP" + error);
-        const data = { message: "Error en el servidor" }
-        return data as IpLocationData;
+        console.error(error);
+        return { message: "Error en el servidor", error: "No se pudo obtener la localización de la IP", data: [] };
     }
 }
