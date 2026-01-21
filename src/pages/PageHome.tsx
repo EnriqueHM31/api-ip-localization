@@ -4,7 +4,7 @@ import FormIpAddress from "../components/sections/IpAddress";
 
 export default function Hero() {
     return (
-        <div className=" md:max-w-7xl w-full flex flex-col items-center justify-center mx-auto">
+        <div className=" md:max-w-7xl w-full flex flex-col items-center justify-center mx-auto min-h-screen">
 
             <Etiqueta text="Encontrar la ubicación de una IP" icon={<FaSearch />} />
 
